@@ -264,7 +264,7 @@ Actual input features must match the trained model's expected feature names and 
       <sub>Machine Learning Model</sub>
     </td>
     <td align="center" width="33%">
-      <a href="https://github.com/NIKHIL_USERNAME">
+      <a href="https://github.com/nikhilnigam-135">
         <img src="https://github.com/NIKHIL_USERNAME.png?size=40" width="40" alt="Nikhil"/>
         <br/>
         <strong>Nikhil</strong>
