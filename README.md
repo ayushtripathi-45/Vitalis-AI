@@ -255,10 +255,10 @@ Actual input features must match the trained model's expected feature names and 
       <sub>Frontend Development</sub>
     </td>
     <td align="center" width="33%">
-      <a href="https://github.com/ATHARVA_USERNAME">
-        <img src="https://github.com/ATHARVA_USERNAME.png?size=40" width="40" alt="Atharva"/>
+      <a href="https://github.com/atharvakesharwani-45">
+        <img src="https://github.com/atharvakesharwani-45.png?size=40" width="40" alt="Atharva"/>
         <br/>
-        <strong>Atharva</strong>
+        <strong>Atharva Kesharwani</strong>
       </a>
       <br/>
       <sub>Machine Learning Model</sub>
