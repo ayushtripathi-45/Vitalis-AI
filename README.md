@@ -1,11 +1,9 @@
 <h1 align="center">
-  <img src="https://img.icons8.com/fluency/48/heart-with-pulse.png" width="35" align="center" />
-  Vitalis AI
+  <img src="https://img.icons8.com/fluency/48/heart-with-pulse.png" width="32" align="center"/>
+  <strong>Vitalis AI</strong>
 </h1>
 
-<h3 align="center">
-  Intelligent Disease Prediction System
-</h3>
+<h3 align="center">Intelligent Disease Prediction System</h3>
 
 <p align="center">
   A machine-learning-powered platform for symptom-based disease prediction.
@@ -14,7 +12,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Java-Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white" />
   <img src="https://img.shields.io/badge/Python-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
-  <img src="https://img.shields.io/badge/Machine%20Learning-Random%20Forest-FF9800?style=flat-square" />
+  <img src="https://img.shields.io/badge/ML-Random%20Forest-FF9800?style=flat-square" />
   <img src="https://img.shields.io/badge/Database-MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white" />
   <img src="https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS%20%7C%20JS-E34F26?style=flat-square&logo=html5&logoColor=white" />
 </p>
@@ -25,7 +23,7 @@
 
 **Vitalis AI** is a web-based disease prediction system that analyzes user-selected symptoms using a trained machine learning model.
 
-The platform integrates a responsive frontend, a Java Spring Boot backend, a Python-based ML API, and a MySQL database to deliver an end-to-end prediction experience.
+It integrates a responsive frontend, Java Spring Boot backend, Python-based ML API, and MySQL database to provide an end-to-end prediction experience.
 
 ## ✨ Features
 
@@ -43,11 +41,11 @@ The platform integrates a responsive frontend, a Java Spring Boot backend, a Pyt
 
 ```mermaid
 flowchart TD
-    A["🌐 Frontend<br/>HTML · CSS · JavaScript"]
-    B["☕ Spring Boot Backend<br/>Java · REST APIs · JWT"]
-    C[("🗄️ MySQL Database")]
-    D["🐍 Python ML API<br/>FastAPI"]
-    E["🤖 Random Forest Model"]
+    A["Frontend<br/>HTML · CSS · JavaScript"]
+    B["Spring Boot Backend<br/>Java · REST APIs · JWT"]
+    C[("MySQL Database")]
+    D["Python ML API<br/>FastAPI"]
+    E["Random Forest Model"]
 
     A <-->|HTTP / REST| B
     B <-->|Database Operations| C
@@ -74,29 +72,47 @@ flowchart TD
 ```text
 Vitalis-AI/
 │
-├── frontend/
-│   ├── index.html
-│   ├── login.html
-│   ├── dashboard.html
-│   ├── patient.html
-│   ├── symptoms.html
-│   ├── result.html
-│   ├── history.html
-│   ├── profile.html
-│   └── CSS & JavaScript files
+├── index.html
+├── login.html
+├── dashboard.html
+├── patient.html
+├── symptoms.html
+├── result.html
+├── history.html
+├── profile.html
+│
+├── auth.css
+├── auth.js
+├── dashboard.css
+├── dashboard.js
+├── patient.css
+├── patient.js
+├── symptoms.css
+├── symptoms.js
+├── result.css
+├── result.js
+├── history.css
+├── history.js
+├── profile.css
+├── profile.js
+├── style.css
+├── script.js
 │
 ├── backend/
 │   └── vitalis-backend/
-│       ├── src/main/java/
-│       │   └── com/vitalis_backend/
-│       │       ├── config/
-│       │       ├── controller/
-│       │       ├── dto/
-│       │       ├── entity/
-│       │       ├── repository/
-│       │       ├── security/
-│       │       └── service/
-│       ├── src/main/resources/
+│       ├── src/
+│       │   ├── main/
+│       │   │   ├── java/
+│       │   │   │   └── com/vitalis_backend/
+│       │   │   │       ├── config/
+│       │   │   │       ├── controller/
+│       │   │   │       ├── dto/
+│       │   │   │       ├── entity/
+│       │   │   │       ├── repository/
+│       │   │   │       ├── security/
+│       │   │   │       └── service/
+│       │   │   └── resources/
+│       │   └── test/
 │       └── pom.xml
 │
 ├── vitalis-ml/
@@ -134,7 +150,7 @@ Create the database in MySQL:
 CREATE DATABASE vitalis_db;
 ```
 
-Configure these environment variables for the backend:
+Configure the backend environment variables:
 
 ```env
 DB_URL=jdbc:mysql://localhost:3306/vitalis_db
@@ -187,12 +203,12 @@ Ensure the frontend API configuration points to the running backend.
 
 | Method | Endpoint | Description |
 |:---:|:---|:---|
-| `GET` | `/` | API status |
-| `GET` | `/health` | Service health check |
-| `GET` | `/features` | Retrieve model features |
-| `POST` | `/predict` | Generate prediction |
+| GET | `/` | API status |
+| GET | `/health` | Service health check |
+| GET | `/features` | Retrieve model features |
+| POST | `/predict` | Generate prediction |
 
-**Sample prediction request**
+**Sample Request**
 
 ```json
 {
@@ -202,7 +218,7 @@ Ensure the frontend API configuration points to the running backend.
 }
 ```
 
-**Sample response**
+**Sample Response**
 
 ```json
 {
@@ -211,7 +227,7 @@ Ensure the frontend API configuration points to the running backend.
 }
 ```
 
-The actual input features must match the trained model's expected feature names and format.
+Actual input features must match the trained model's expected feature names and format.
 
 ## ⚙️ Environment Variables
 
@@ -230,19 +246,31 @@ The actual input features must match the trained model's expected feature names 
 <table>
   <tr>
     <td align="center" width="33%">
-      <strong>Ayush Tripathi</strong><br/>
-      <sub>Frontend Development</sub><br/>
-      <a href="https://github.com/ayushtripathi-45">GitHub ↗</a>
+      <a href="https://github.com/ayushtripathi-45">
+        <img src="https://github.com/ayushtripathi-45.png?size=40" width="40" alt="Ayush"/>
+        <br/>
+        <strong>Ayush Tripathi</strong>
+      </a>
+      <br/>
+      <sub>Frontend Development</sub>
     </td>
     <td align="center" width="33%">
-      <strong>Atharva</strong><br/>
-      <sub>Machine Learning Model</sub><br/>
-      <a href="YOUR_ATHARVA_GITHUB_LINK">GitHub ↗</a>
+      <a href="https://github.com/ATHARVA_USERNAME">
+        <img src="https://github.com/ATHARVA_USERNAME.png?size=40" width="40" alt="Atharva"/>
+        <br/>
+        <strong>Atharva</strong>
+      </a>
+      <br/>
+      <sub>Machine Learning Model</sub>
     </td>
     <td align="center" width="33%">
-      <strong>Nikhil</strong><br/>
-      <sub>Backend Development</sub><br/>
-      <a href="YOUR_NIKHIL_GITHUB_LINK">GitHub ↗</a>
+      <a href="https://github.com/NIKHIL_USERNAME">
+        <img src="https://github.com/NIKHIL_USERNAME.png?size=40" width="40" alt="Nikhil"/>
+        <br/>
+        <strong>Nikhil</strong>
+      </a>
+      <br/>
+      <sub>Backend Development</sub>
     </td>
   </tr>
 </table>
@@ -254,6 +282,7 @@ Vitalis AI is intended for educational and informational purposes only. Its pred
 ---
 
 <p align="center">
-  <strong>VITALIS AI</strong><br/>
+  <strong>VITALIS AI</strong>
+  <br/>
   Intelligent Insights. Better Awareness.
 </p>
