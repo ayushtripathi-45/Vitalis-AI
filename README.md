@@ -1,6 +1,11 @@
-# <img src="https://img.icons8.com/fluency/48/heart-with-pulse.png" width="30" align="center" /> Vitalis AI
+<h1 align="center">
+  <img src="https://img.icons8.com/fluency/48/heart-with-pulse.png" width="35" align="center" />
+  Vitalis AI
+</h1>
 
-### Intelligent Disease Prediction System
+<h3 align="center">
+  Intelligent Disease Prediction System
+</h3>
 
 <p align="center">
   A machine-learning-powered platform for symptom-based disease prediction.
