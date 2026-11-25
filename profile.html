@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your Vitalis AI profile and account information.">
+    <title>My Profile | Vitalis AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body class="dashboard-body profile-body">
+
+    <div class="dashboard-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="index.html" class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <span>vitalis<span class="brand-ai">.ai</span></span>
+            </a>
+
+            <div class="sidebar-label">WORKSPACE</div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link">
+                    <i class="fa-solid fa-grid-2"></i>
+                    <span>Overview</span>
+                </a>
+
+                <a href="patient.html" class="sidebar-link">
+                    <i class="fa-solid fa-plus-circle"></i>
+                    <span>New Prediction</span>
+                </a>
+
+                <a href="history.html" class="sidebar-link">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Prediction History</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-label account-label">ACCOUNT</div>
+
+            <nav class="sidebar-nav">
+                <a href="profile.html" class="sidebar-link active">
+                    <i class="fa-regular fa-user"></i>
+                    <span>My Profile</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-help">
+                    <div class="help-icon">
+                        <i class="fa-regular fa-circle-question"></i>
+                    </div>
+
+                    <div>
+                        <h4>Need help?</h4>
+                        <p>Explore how Vitalis AI works.</p>
+                    </div>
+
+                    <a href="index.html#how-it-works" aria-label="Learn how Vitalis AI works">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <button class="logout-button" id="logoutButton">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Log out</span>
+                </button>
+
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+
+            <header class="dashboard-topbar">
+
+                <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="breadcrumb">
+                    <span>Account</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <strong>My Profile</strong>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-avatar" id="topbarAvatar">U</div>
+                </div>
+
+            </header>
+
+            <div class="profile-content">
+
+                <!-- Heading -->
+                <section class="profile-heading">
+                    <div>
+                        <p class="profile-eyebrow">ACCOUNT SETTINGS</p>
+                        <h1>My Profile</h1>
+                        <p>Manage your personal information and account details.</p>
+                    </div>
+                </section>
+
+                <!-- Profile Overview -->
+                <section class="profile-overview-card">
+
+                    <div class="profile-avatar-large" id="profileAvatar">
+                        U
+                    </div>
+
+                    <div class="profile-overview-details">
+                        <h2 id="profileDisplayName">User</h2>
+                        <p id="profileDisplayEmail">user@example.com</p>
+
+                        <div class="profile-account-tag">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Vitalis AI Account
+                        </div>
+                    </div>
+
+                    <div class="profile-overview-right">
+                        <span>ACCOUNT TYPE</span>
+                        <strong>Standard User</strong>
+                    </div>
+
+                </section>
+
+                <!-- Personal Information -->
+                <section class="profile-section-card">
+
+                    <div class="profile-section-heading">
+                        <div class="profile-section-icon">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+
+                        <div>
+                            <h2>Personal Information</h2>
+                            <p>Update the basic information associated with your account.</p>
+                        </div>
+                    </div>
+
+                    <form id="profileForm">
+
+                        <div class="profile-form-grid">
+
+                            <div class="profile-field">
+                                <label for="profileName">Full Name</label>
+
+                                <div class="profile-input-wrapper">
+                                    <i class="fa-regular fa-user"></i>
+                                    <input
+                                        type="text"
+                                        id="profileName"
+                                        name="name"
+                                        placeholder="Enter your full name"
+                                        maxlength="60"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="profile-field">
+                                <label for="profileEmail">Email Address</label>
+
+                                <div class="profile-input-wrapper readonly-input">
+                                    <i class="fa-regular fa-envelope"></i>
+                                    <input
+                                        type="email"
+                                        id="profileEmail"
+                                        name="email"
+                                        readonly
+                                    >
+                                    <i class="fa-solid fa-lock input-lock-icon"></i>
+                                </div>
+
+                                <small>Your registered email cannot be changed here.</small>
+                            </div>
+
+                        </div>
+
+                        <div class="profile-form-message" id="profileMessage" role="status" aria-live="polite"></div>
+
+                        <div class="profile-form-actions">
+                            <button type="button" class="profile-reset-button" id="resetProfileButton">
+                                Reset
+                            </button>
+
+                            <button type="submit" class="profile-save-button" id="saveProfileButton">
+                                <i class="fa-solid fa-check"></i>
+                                Save Changes
+                            </button>
+                        </div>
+
+                    </form>
+
+                </section>
+
+                <!-- Account Information -->
+                <section class="profile-section-card">
+
+                    <div class="profile-section-heading">
+                        <div class="profile-section-icon account-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <div>
+                            <h2>Account Information</h2>
+                            <p>Information about your Vitalis AI account.</p>
+                        </div>
+                    </div>
+
+                    <div class="account-info-list">
+
+                        <div class="account-info-row">
+                            <div>
+                                <span>Account Status</span>
+                                <p>Your account is active in this demo.</p>
+                            </div>
+
+                            <span class="account-status">
+                                <i class="fa-solid fa-circle"></i>
+                                Active
+                            </span>
+                        </div>
+
+                        <div class="account-info-row">
+                            <div>
+                                <span>Authentication</span>
+                                <p>Current demonstration authentication system.</p>
+                            </div>
+
+                            <strong class="account-info-value">Local Demo</strong>
+                        </div>
+
+                        <div class="account-info-row">
+                            <div>
+                                <span>Data Storage</span>
+                                <p>Account data is stored in this browser.</p>
+                            </div>
+
+                            <strong class="account-info-value">Local Storage</strong>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Privacy Notice -->
+                <section class="profile-privacy-card">
+                    <div class="privacy-icon">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+
+                    <div>
+                        <h3>Privacy and Security</h3>
+                        <p>
+                            This frontend currently uses browser storage for
+                            demonstration. It does not provide production-grade
+                            authentication or secure medical-record storage.
+                            Connect the backend before using real patient data.
+                        </p>
+                    </div>
+                </section>
+
+                <footer class="patient-footer">
+                    © 2026 Vitalis AI. AI-assisted. Human-centered.
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <script src="profile.js"></script>
+</body>
+</html>

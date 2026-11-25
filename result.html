@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Review your Vitalis AI health assessment.">
+    <title>Assessment Result | Vitalis AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="result.css">
+</head>
+
+<body class="dashboard-body result-body">
+
+    <div class="dashboard-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="index.html" class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <span>vitalis<span class="brand-ai">.ai</span></span>
+            </a>
+
+            <div class="sidebar-label">WORKSPACE</div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link">
+                    <i class="fa-solid fa-grid-2"></i>
+                    <span>Overview</span>
+                </a>
+
+                <a href="patient.html" class="sidebar-link active">
+                    <i class="fa-solid fa-plus-circle"></i>
+                    <span>New Prediction</span>
+                </a>
+
+                <a href="history.html" class="sidebar-link">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Prediction History</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-label account-label">ACCOUNT</div>
+
+            <nav class="sidebar-nav">
+                <a href="profile.html" class="sidebar-link">
+                    <i class="fa-regular fa-user"></i>
+                    <span>My Profile</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-help">
+                    <div class="help-icon">
+                        <i class="fa-regular fa-circle-question"></i>
+                    </div>
+                    <div>
+                        <h4>Need help?</h4>
+                        <p>Explore how Vitalis AI works.</p>
+                    </div>
+                    <a href="index.html#how-it-works" aria-label="Learn how Vitalis AI works">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <button class="logout-button" id="logoutButton">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Log out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <main class="dashboard-main">
+
+            <header class="dashboard-topbar">
+                <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="breadcrumb">
+                    <span>Workspace</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <strong>Assessment Result</strong>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-avatar" id="topbarAvatar">U</div>
+                </div>
+            </header>
+
+            <div class="result-content">
+
+                <!-- Page Heading -->
+                <section class="result-heading">
+                    <a href="dashboard.html" class="back-link">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Back to Dashboard
+                    </a>
+
+                    <p class="result-eyebrow">HEALTH ASSESSMENT</p>
+
+                    <h1>Your Assessment Summary</h1>
+
+                    <p>
+                        Review the information submitted for your health assessment.
+                    </p>
+                </section>
+
+                <!-- Status -->
+                <section class="result-status-card">
+                    <div class="status-illustration">
+                        <div class="status-illustration-circle">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                        </div>
+                    </div>
+
+                    <div class="status-content">
+                        <span class="pending-label">
+                            <span></span>
+                            PREDICTION PENDING
+                        </span>
+
+                        <h2>Your information has been collected.</h2>
+
+                        <p>
+                            Your assessment details are ready. The prediction
+                            engine will provide results once the ML backend
+                            is connected.
+                        </p>
+                    </div>
+
+                    <div class="status-reference">
+                        <span>ASSESSMENT DATE</span>
+                        <strong id="assessmentDate">—</strong>
+                    </div>
+                </section>
+
+                <!-- Prediction Placeholder -->
+                <section class="prediction-placeholder">
+                    <div class="placeholder-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+
+                    <div class="placeholder-content">
+                        <span class="placeholder-tag">ML ENGINE</span>
+
+                        <h2>Prediction not generated yet</h2>
+
+                        <p>
+                            The machine-learning prediction service is not
+                            connected in this frontend version. No disease
+                            prediction or confidence score has been generated.
+                        </p>
+
+                        <div class="model-list">
+                            <span><i class="fa-solid fa-circle"></i> XGBoost</span>
+                            <span><i class="fa-solid fa-circle"></i> CatBoost</span>
+                            <span><i class="fa-solid fa-circle"></i> Decision Tree</span>
+                            <span><i class="fa-solid fa-circle"></i> Random Forest</span>
+                        </div>
+                    </div>
+
+                    <span class="engine-status">
+                        <span></span>
+                        Awaiting backend
+                    </span>
+                </section>
+
+                <!-- Assessment Details -->
+                <section class="result-section">
+
+                    <div class="result-section-heading">
+                        <div>
+                            <h2>Assessment Details</h2>
+                            <p>Information submitted in this assessment</p>
+                        </div>
+
+                        <span class="details-badge">
+                            <i class="fa-solid fa-check"></i>
+                            Information received
+                        </span>
+                    </div>
+
+                    <div class="details-grid">
+
+                        <!-- Patient -->
+                        <article class="details-card">
+                            <div class="details-card-heading">
+                                <div class="details-icon">
+                                    <i class="fa-regular fa-user"></i>
+                                </div>
+                                <h3>Patient Information</h3>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Patient Name</span>
+                                <strong id="resultPatientName">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Age</span>
+                                <strong id="resultAge">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Gender</span>
+                                <strong id="resultGender">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Height</span>
+                                <strong id="resultHeight">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Weight</span>
+                                <strong id="resultWeight">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>BMI</span>
+                                <strong id="resultBMI">—</strong>
+                            </div>
+                        </article>
+
+                        <!-- Symptoms -->
+                        <article class="details-card">
+                            <div class="details-card-heading">
+                                <div class="details-icon symptom-details-icon">
+                                    <i class="fa-solid fa-notes-medical"></i>
+                                </div>
+                                <h3>Symptom Information</h3>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Severity</span>
+                                <strong id="resultSeverity">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Duration</span>
+                                <strong id="resultDuration">—</strong>
+                            </div>
+
+                            <div class="symptom-list-heading">
+                                Selected Symptoms
+                            </div>
+
+                            <div class="result-symptoms" id="resultSymptoms">
+                                <span class="detail-muted">No symptoms available</span>
+                            </div>
+                        </article>
+
+                    </div>
+                </section>
+
+                <!-- Medical History -->
+                <section class="result-section">
+                    <div class="result-section-heading">
+                        <div>
+                            <h2>Medical Background</h2>
+                            <p>Additional information provided by the patient</p>
+                        </div>
+                    </div>
+
+                    <div class="medical-background-card">
+
+                        <div class="background-row">
+                            <div class="background-label">
+                                <i class="fa-solid fa-notes-medical"></i>
+                                <span>Existing Conditions</span>
+                            </div>
+                            <div class="background-value" id="resultConditions">
+                                —
+                            </div>
+                        </div>
+
+                        <div class="background-row">
+                            <div class="background-label">
+                                <i class="fa-solid fa-pills"></i>
+                                <span>Current Medications</span>
+                            </div>
+                            <div class="background-value" id="resultMedications">
+                                —
+                            </div>
+                        </div>
+
+                        <div class="background-row">
+                            <div class="background-label">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <span>Known Allergies</span>
+                            </div>
+                            <div class="background-value" id="resultAllergies">
+                                —
+                            </div>
+                        </div>
+
+                        <div class="background-row">
+                            <div class="background-label">
+                                <i class="fa-regular fa-message"></i>
+                                <span>Additional Notes</span>
+                            </div>
+                            <div class="background-value" id="resultNotes">
+                                —
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Disclaimer -->
+                <section class="result-disclaimer">
+                    <div class="disclaimer-icon">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+
+                    <div>
+                        <h3>Important Medical Disclaimer</h3>
+                        <p>
+                            Vitalis AI is an educational and informational tool.
+                            Its output is not a medical diagnosis, treatment
+                            recommendation, or substitute for professional
+                            healthcare advice. Always consult a qualified
+                            healthcare professional about symptoms or health concerns.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Actions -->
+                <section class="result-actions">
+                    <a href="dashboard.html" class="secondary-form-button">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+
+                    <a href="patient.html" class="continue-button">
+                        Start New Assessment
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </section>
+
+                <footer class="patient-footer">
+                    © 2026 Vitalis AI. AI-assisted. Human-centered.
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <script src="result.js"></script>
+</body>
+</html>

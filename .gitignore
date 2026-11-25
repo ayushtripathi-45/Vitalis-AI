@@ -1,0 +1,32 @@
+
+# Python
+**/venv/
+**/__pycache__/
+*.py[cod]
+*.log
+
+# Java / Maven
+**/target/
+
+# IDE
+**/.idea/
+.vscode/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+**/application-local.properties
+
+# OS
+.DS_Store
+Thumbs.db
+# Large training dataset
+vitalis-ml/train.csv
+
+# Large ML model - will be stored separately
+vitalis-ml/random_forest.pkl
+
+.env
+.env.*
+!.env.example

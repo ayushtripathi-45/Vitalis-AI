@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View your previous Vitalis AI health assessments.">
+    <title>Prediction History | Vitalis AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="history.css">
+</head>
+
+<body class="dashboard-body history-body">
+
+    <div class="dashboard-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="index.html" class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <span>vitalis<span class="brand-ai">.ai</span></span>
+            </a>
+
+            <div class="sidebar-label">WORKSPACE</div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link">
+                    <i class="fa-solid fa-grid-2"></i>
+                    <span>Overview</span>
+                </a>
+
+                <a href="patient.html" class="sidebar-link">
+                    <i class="fa-solid fa-plus-circle"></i>
+                    <span>New Prediction</span>
+                </a>
+
+                <a href="history.html" class="sidebar-link active">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Prediction History</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-label account-label">ACCOUNT</div>
+
+            <nav class="sidebar-nav">
+                <a href="profile.html" class="sidebar-link">
+                    <i class="fa-regular fa-user"></i>
+                    <span>My Profile</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-help">
+                    <div class="help-icon">
+                        <i class="fa-regular fa-circle-question"></i>
+                    </div>
+                    <div>
+                        <h4>Need help?</h4>
+                        <p>Explore how Vitalis AI works.</p>
+                    </div>
+                    <a href="index.html#how-it-works" aria-label="Learn how Vitalis AI works">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <button class="logout-button" id="logoutButton">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Log out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+
+            <header class="dashboard-topbar">
+                <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="breadcrumb">
+                    <span>Workspace</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <strong>Prediction History</strong>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-avatar" id="topbarAvatar">U</div>
+                </div>
+            </header>
+
+            <div class="history-content">
+
+                <!-- Page Heading -->
+                <section class="history-heading">
+                    <div>
+                        <p class="history-eyebrow">YOUR HEALTH RECORDS</p>
+                        <h1>Prediction History</h1>
+                        <p>
+                            Review and keep track of your previous assessments.
+                        </p>
+                    </div>
+
+                    <a href="patient.html" class="history-new-button">
+                        <i class="fa-solid fa-plus"></i>
+                        New Assessment
+                    </a>
+                </section>
+
+                <!-- Summary Cards -->
+                <section class="history-stats">
+
+                    <article class="history-stat-card">
+                        <div class="history-stat-icon total-icon">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <div>
+                            <span>Total Records</span>
+                            <strong id="totalRecords">0</strong>
+                        </div>
+                    </article>
+
+                    <article class="history-stat-card">
+                        <div class="history-stat-icon completed-icon">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div>
+                            <span>Completed</span>
+                            <strong id="completedRecords">0</strong>
+                        </div>
+                    </article>
+
+                    <article class="history-stat-card">
+                        <div class="history-stat-icon pending-icon">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <div>
+                            <span>Pending</span>
+                            <strong id="pendingRecords">0</strong>
+                        </div>
+                    </article>
+
+                </section>
+
+                <!-- History Panel -->
+                <section class="history-panel">
+
+                    <div class="history-panel-heading">
+                        <div>
+                            <h2>All Assessments</h2>
+                            <p id="historySubtitle">Your saved assessment records</p>
+                        </div>
+
+                        <span class="records-count" id="recordsCount">
+                            0 records
+                        </span>
+                    </div>
+
+                    <!-- Search and Filter -->
+                    <div class="history-toolbar">
+
+                        <div class="history-search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input
+                                type="search"
+                                id="historySearch"
+                                placeholder="Search by condition or model..."
+                                aria-label="Search prediction history"
+                            >
+                        </div>
+
+                        <div class="history-filter">
+                            <i class="fa-solid fa-filter"></i>
+                            <select id="statusFilter" aria-label="Filter by status">
+                                <option value="all">All statuses</option>
+                                <option value="completed">Completed</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <!-- Table -->
+                    <div class="history-table-wrapper" id="historyTableWrapper">
+
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>ASSESSMENT DATE</th>
+                                    <th>PREDICTED CONDITION</th>
+                                    <th>MODEL</th>
+                                    <th>STATUS</th>
+                                    <th class="action-column">ACTION</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="historyTableBody">
+                                <!-- Records rendered by history.js -->
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <!-- Empty State -->
+                    <div class="history-empty-state" id="historyEmptyState" hidden>
+                        <div class="empty-history-icon">
+                            <i class="fa-solid fa-folder-open"></i>
+                        </div>
+
+                        <h3 id="emptyStateTitle">No assessments yet</h3>
+
+                        <p id="emptyStateMessage">
+                            Your completed assessments will appear here.
+                            Start a new assessment to begin building your history.
+                        </p>
+
+                        <a href="patient.html" class="history-empty-button">
+                            <i class="fa-solid fa-plus"></i>
+                            Start an Assessment
+                        </a>
+                    </div>
+
+                    <!-- No Search Results -->
+                    <div class="history-no-results" id="historyNoResults" hidden>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h3>No matching records</h3>
+                        <p>Try changing your search or status filter.</p>
+                        <button type="button" id="clearHistoryFilters">
+                            Clear filters
+                        </button>
+                    </div>
+
+                </section>
+
+                <!-- Information Notice -->
+                <section class="history-notice">
+                    <div class="history-notice-icon">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+
+                    <div>
+                        <h3>Your information matters</h3>
+                        <p>
+                            Assessment records are currently stored in this
+                            browser for demonstration purposes. Connect the
+                            backend database for secure, persistent records
+                            across devices and sessions.
+                        </p>
+                    </div>
+                </section>
+
+                <footer class="patient-footer">
+                    © 2026 Vitalis AI. AI-assisted. Human-centered.
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Record Details Modal -->
+    <div class="history-modal-overlay" id="historyModal" hidden>
+        <div
+            class="history-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+        >
+            <div class="history-modal-header">
+                <div>
+                    <span>ASSESSMENT DETAILS</span>
+                    <h2 id="modalTitle">Assessment Record</h2>
+                </div>
+
+                <button
+                    type="button"
+                    class="modal-close-button"
+                    id="closeHistoryModal"
+                    aria-label="Close details"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="history-modal-body">
+                <div class="modal-detail-row">
+                    <span>Date</span>
+                    <strong id="modalDate">—</strong>
+                </div>
+
+                <div class="modal-detail-row">
+                    <span>Predicted Condition</span>
+                    <strong id="modalDisease">—</strong>
+                </div>
+
+                <div class="modal-detail-row">
+                    <span>Model</span>
+                    <strong id="modalModel">—</strong>
+                </div>
+
+                <div class="modal-detail-row">
+                    <span>Status</span>
+                    <strong id="modalStatus">—</strong>
+                </div>
+
+                <div class="modal-detail-row">
+                    <span>Confidence</span>
+                    <strong id="modalConfidence">Not available</strong>
+                </div>
+
+                <div class="modal-detail-row modal-symptoms-row">
+                    <span>Symptoms</span>
+                    <div id="modalSymptoms">Not available</div>
+                </div>
+            </div>
+
+            <p class="modal-disclaimer">
+                This record is informational and should not be treated as a
+                medical diagnosis.
+            </p>
+
+            <div class="history-modal-footer">
+                <button type="button" id="modalDoneButton">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <script src="history.js"></script>
+</body>
+</html>

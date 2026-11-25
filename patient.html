@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enter patient information for a Vitalis AI health assessment.">
+    <title>Patient Information | Vitalis AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="patient.css">
+</head>
+
+<body class="dashboard-body patient-body">
+
+    <div class="dashboard-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="index.html" class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <span>vitalis<span class="brand-ai">.ai</span></span>
+            </a>
+
+            <div class="sidebar-label">WORKSPACE</div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link">
+                    <i class="fa-solid fa-grid-2"></i>
+                    <span>Overview</span>
+                </a>
+
+                <a href="patient.html" class="sidebar-link active">
+                    <i class="fa-solid fa-plus-circle"></i>
+                    <span>New Prediction</span>
+                </a>
+
+                <a href="history.html" class="sidebar-link">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Prediction History</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-label account-label">ACCOUNT</div>
+
+            <nav class="sidebar-nav">
+                <a href="profile.html" class="sidebar-link">
+                    <i class="fa-regular fa-user"></i>
+                    <span>My Profile</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-help">
+                    <div class="help-icon">
+                        <i class="fa-regular fa-circle-question"></i>
+                    </div>
+                    <div>
+                        <h4>Need help?</h4>
+                        <p>Explore how Vitalis AI works.</p>
+                    </div>
+                    <a href="index.html#how-it-works" aria-label="Learn how Vitalis AI works">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <button class="logout-button" id="logoutButton">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Log out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+
+            <header class="dashboard-topbar">
+                <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="breadcrumb">
+                    <span>Workspace</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <strong>New Prediction</strong>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-avatar" id="topbarAvatar">U</div>
+                </div>
+            </header>
+
+            <div class="patient-content">
+
+                <!-- Page Heading -->
+                <section class="patient-heading">
+                    <div>
+                        <a href="dashboard.html" class="back-link">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            Back to Dashboard
+                        </a>
+
+                        <p class="patient-eyebrow">NEW HEALTH ASSESSMENT</p>
+
+                        <h1>Patient Information</h1>
+
+                        <p class="patient-subtitle">
+                            Let's start with some basic information about the patient.
+                            This helps our system prepare the assessment.
+                        </p>
+                    </div>
+
+                    <div class="secure-indicator">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        Secure Information
+                    </div>
+                </section>
+
+                <!-- Progress -->
+                <section class="progress-section">
+                    <div class="progress-top">
+                        <span>Assessment Progress</span>
+                        <strong>Step 1 of 2</strong>
+                    </div>
+
+                    <div class="progress-track">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <div class="progress-steps">
+                        <div class="progress-step active">
+                            <span>1</span>
+                            Patient Details
+                        </div>
+
+                        <div class="progress-step">
+                            <span>2</span>
+                            Symptoms
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Patient Form -->
+                <form id="patientForm" class="patient-form" novalidate>
+
+                    <!-- Personal Information -->
+                    <section class="form-section">
+
+                        <div class="form-section-heading">
+                            <div class="section-icon">
+                                <i class="fa-regular fa-user"></i>
+                            </div>
+
+                            <div>
+                                <h2>Personal Details</h2>
+                                <p>Basic information about the patient</p>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+
+                            <div class="form-group full-width">
+                                <label for="patientName">
+                                    Full Name <span>*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-user"></i>
+                                    <input
+                                        type="text"
+                                        id="patientName"
+                                        name="patientName"
+                                        placeholder="Enter patient's full name"
+                                        autocomplete="name"
+                                        required
+                                    >
+                                </div>
+
+                                <small class="field-error" id="nameError"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">
+                                    Age <span>*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    <input
+                                        type="number"
+                                        id="age"
+                                        name="age"
+                                        placeholder="Enter age"
+                                        min="1"
+                                        max="120"
+                                        required
+                                    >
+                                    <span class="input-suffix">Years</span>
+                                </div>
+
+                                <small class="field-error" id="ageError"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="gender">
+                                    Gender <span>*</span>
+                                </label>
+
+                                <div class="select-wrapper">
+                                    <select id="gender" name="gender" required>
+                                        <option value="">Select gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                        <option value="Prefer not to say">Prefer not to say</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+
+                                <small class="field-error" id="genderError"></small>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- Physical Information -->
+                    <section class="form-section">
+
+                        <div class="form-section-heading">
+                            <div class="section-icon">
+                                <i class="fa-solid fa-weight-scale"></i>
+                            </div>
+
+                            <div>
+                                <h2>Physical Information</h2>
+                                <p>Basic body measurements</p>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="height">
+                                    Height <span>*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-ruler-vertical"></i>
+                                    <input
+                                        type="number"
+                                        id="height"
+                                        name="height"
+                                        placeholder="Enter height"
+                                        min="50"
+                                        max="250"
+                                        step="0.1"
+                                        required
+                                    >
+                                    <span class="input-suffix">cm</span>
+                                </div>
+
+                                <small class="field-error" id="heightError"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="weight">
+                                    Weight <span>*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-weight-hanging"></i>
+                                    <input
+                                        type="number"
+                                        id="weight"
+                                        name="weight"
+                                        placeholder="Enter weight"
+                                        min="2"
+                                        max="500"
+                                        step="0.1"
+                                        required
+                                    >
+                                    <span class="input-suffix">kg</span>
+                                </div>
+
+                                <small class="field-error" id="weightError"></small>
+                            </div>
+
+                            <div class="bmi-card full-width">
+                                <div class="bmi-left">
+                                    <div class="bmi-icon">
+                                        <i class="fa-solid fa-chart-line"></i>
+                                    </div>
+
+                                    <div>
+                                        <h3>Body Mass Index (BMI)</h3>
+                                        <p>Calculated automatically from height and weight</p>
+                                    </div>
+                                </div>
+
+                                <div class="bmi-result">
+                                    <strong id="bmiValue">—</strong>
+                                    <span id="bmiCategory">Enter measurements</span>
+                                </div>
+                            </div>
+
+                            <p class="bmi-note full-width">
+                                BMI is a general screening measure and is not a diagnosis
+                                or a complete measure of individual health.
+                            </p>
+
+                        </div>
+                    </section>
+
+                    <!-- Medical History -->
+                    <section class="form-section">
+
+                        <div class="form-section-heading">
+                            <div class="section-icon">
+                                <i class="fa-solid fa-notes-medical"></i>
+                            </div>
+
+                            <div>
+                                <h2>Medical History</h2>
+                                <p>Help us understand relevant existing health conditions</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Existing Medical Conditions</label>
+
+                            <p class="form-helper">
+                                Select all conditions that apply, or choose None.
+                            </p>
+
+                            <div class="condition-grid">
+
+                                <label class="condition-option">
+                                    <input type="checkbox" name="conditions" value="Diabetes">
+                                    <span>Diabetes</span>
+                                </label>
+
+                                <label class="condition-option">
+                                    <input type="checkbox" name="conditions" value="Hypertension">
+                                    <span>Hypertension</span>
+                                </label>
+
+                                <label class="condition-option">
+                                    <input type="checkbox" name="conditions" value="Heart Disease">
+                                    <span>Heart Disease</span>
+                                </label>
+
+                                <label class="condition-option">
+                                    <input type="checkbox" name="conditions" value="Asthma">
+                                    <span>Asthma</span>
+                                </label>
+
+                                <label class="condition-option">
+                                    <input type="checkbox" name="conditions" value="Thyroid Disorder">
+                                    <span>Thyroid Disorder</span>
+                                </label>
+
+                                <label class="condition-option">
+                                    <input type="checkbox" name="conditions" value="Kidney Disease">
+                                    <span>Kidney Disease</span>
+                                </label>
+
+                                <label class="condition-option">
+                                    <input type="checkbox" name="conditions" value="Liver Disease">
+                                    <span>Liver Disease</span>
+                                </label>
+
+                                <label class="condition-option">
+                                    <input type="checkbox" name="conditions" value="Other">
+                                    <span>Other</span>
+                                </label>
+
+                                <label class="condition-option none-option">
+                                    <input type="checkbox" name="conditions" value="None">
+                                    <span>None of these</span>
+                                </label>
+
+                            </div>
+
+                            <small class="field-error" id="conditionsError"></small>
+                        </div>
+
+                        <div class="form-grid medical-extra">
+
+                            <div class="form-group">
+                                <label for="medications">Current Medications</label>
+
+                                <textarea
+                                    id="medications"
+                                    name="medications"
+                                    rows="3"
+                                    placeholder="List any current medications (optional)"
+                                ></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="allergies">Known Allergies</label>
+
+                                <textarea
+                                    id="allergies"
+                                    name="allergies"
+                                    rows="3"
+                                    placeholder="Mention any known allergies (optional)"
+                                ></textarea>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- Form Notice -->
+                    <div class="form-notice">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <p>
+                            Please provide accurate information. The assessment is
+                            intended for informational purposes and does not replace
+                            consultation with a qualified healthcare professional.
+                        </p>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="form-actions">
+                        <a href="dashboard.html" class="secondary-form-button">
+                            Cancel
+                        </a>
+
+                        <button type="submit" class="continue-button">
+                            Continue to Symptoms
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <p class="form-message" id="formMessage" role="alert"></p>
+
+                </form>
+
+                <footer class="patient-footer">
+                    © 2026 Vitalis AI. AI-assisted. Human-centered.
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <script src="patient.js"></script>
+</body>
+</html>

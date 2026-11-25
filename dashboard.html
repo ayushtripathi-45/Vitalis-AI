@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vitalis AI - Your personal health prediction dashboard.">
+    <title>Dashboard | Vitalis AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="index.html" class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <span>vitalis<span class="brand-ai">.ai</span></span>
+            </a>
+
+            <div class="sidebar-label">WORKSPACE</div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link active">
+                    <i class="fa-solid fa-grid-2"></i>
+                    <span>Overview</span>
+                </a>
+
+                <a href="patient.html" class="sidebar-link">
+                    <i class="fa-solid fa-plus-circle"></i>
+                    <span>New Prediction</span>
+                </a>
+
+                <a href="history.html" class="sidebar-link">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Prediction History</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-label account-label">ACCOUNT</div>
+
+            <nav class="sidebar-nav">
+                <a href="profile.html" class="sidebar-link">
+                    <i class="fa-regular fa-user"></i>
+                    <span>My Profile</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-help">
+                    <div class="help-icon">
+                        <i class="fa-regular fa-circle-question"></i>
+                    </div>
+                    <div>
+                        <h4>Need help?</h4>
+                        <p>Explore how Vitalis AI works.</p>
+                    </div>
+                    <a href="index.html#how-it-works" aria-label="Learn how Vitalis AI works">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <button class="logout-button" id="logoutButton">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Log out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+
+            <!-- Topbar -->
+            <header class="dashboard-topbar">
+                <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="breadcrumb">
+                    <span>Workspace</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <strong>Overview</strong>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="topbar-date">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span id="currentDate">Today</span>
+                    </div>
+
+                    <div class="topbar-avatar" id="topbarAvatar">U</div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+
+                <!-- Welcome Section -->
+                <section class="welcome-section">
+                    <div>
+                        <p class="welcome-eyebrow">
+                            <span class="status-dot"></span>
+                            YOUR HEALTH WORKSPACE
+                        </p>
+
+                        <h1>Welcome back, <span id="userName">User</span></h1>
+
+                        <p class="welcome-description">
+                            Keep track of your health assessments and explore
+                            AI-powered health insights.
+                        </p>
+                    </div>
+
+                    <a href="patient.html" class="primary-dashboard-button">
+                        <i class="fa-solid fa-plus"></i>
+                        New Prediction
+                    </a>
+                </section>
+
+                <!-- Statistics -->
+                <section class="stats-grid">
+
+                    <article class="stat-card">
+                        <div class="stat-card-top">
+                            <div class="stat-icon teal-icon">
+                                <i class="fa-solid fa-chart-simple"></i>
+                            </div>
+                            <span class="stat-label">ALL TIME</span>
+                        </div>
+
+                        <h2 id="totalPredictions">0</h2>
+                        <p>Total Predictions</p>
+                        <span class="stat-footnote">Assessments saved to your account</span>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-card-top">
+                            <div class="stat-icon purple-icon">
+                                <i class="fa-regular fa-calendar-check"></i>
+                            </div>
+                            <span class="stat-label">RECENT</span>
+                        </div>
+
+                        <h2 id="lastAssessment">—</h2>
+                        <p>Last Assessment</p>
+                        <span class="stat-footnote">Date of your latest prediction</span>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-card-top">
+                            <div class="stat-icon orange-icon">
+                                <i class="fa-regular fa-folder-open"></i>
+                            </div>
+                            <span class="stat-label">SAVED</span>
+                        </div>
+
+                        <h2 id="savedRecords">0</h2>
+                        <p>Saved Records</p>
+                        <span class="stat-footnote">Your available prediction records</span>
+                    </article>
+
+                </section>
+
+                <!-- Main Dashboard Grid -->
+                <section class="dashboard-grid">
+
+                    <!-- Recent Predictions -->
+                    <div class="dashboard-panel recent-panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <h2>Recent Predictions</h2>
+                                <p>Your latest health assessments</p>
+                            </div>
+
+                            <a href="history.html" class="view-all-link">
+                                View all
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+
+                        <div id="recentPredictions" class="recent-predictions">
+                            <!-- Populated by dashboard.js -->
+                        </div>
+
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="dashboard-panel quick-panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <h2>Quick Actions</h2>
+                                <p>What would you like to do?</p>
+                            </div>
+                        </div>
+
+                        <a href="patient.html" class="quick-action">
+                            <div class="quick-action-icon">
+                                <i class="fa-solid fa-stethoscope"></i>
+                            </div>
+                            <div>
+                                <h3>Start a Prediction</h3>
+                                <p>Begin a new health assessment</p>
+                            </div>
+                            <i class="fa-solid fa-arrow-right action-arrow"></i>
+                        </a>
+
+                        <a href="history.html" class="quick-action">
+                            <div class="quick-action-icon history-action-icon">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                            </div>
+                            <div>
+                                <h3>View History</h3>
+                                <p>Review your previous records</p>
+                            </div>
+                            <i class="fa-solid fa-arrow-right action-arrow"></i>
+                        </a>
+
+                        <a href="#profile-section" class="quick-action">
+                            <div class="quick-action-icon profile-action-icon">
+                                <i class="fa-regular fa-user"></i>
+                            </div>
+                            <div>
+                                <h3>My Profile</h3>
+                                <p>View your account information</p>
+                            </div>
+                            <i class="fa-solid fa-arrow-right action-arrow"></i>
+                        </a>
+
+                    </div>
+                </section>
+
+                <!-- Information Banner -->
+                <section class="information-banner">
+                    <div class="information-icon">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+
+                    <div class="information-text">
+                        <h3>Your health information matters</h3>
+                        <p>
+                            Vitalis AI provides machine-learning-based predictions
+                            for educational and informational purposes. Results
+                            are not a substitute for professional medical advice.
+                        </p>
+                    </div>
+
+                    <i class="fa-solid fa-arrow-right information-arrow"></i>
+                </section>
+
+                <!-- Profile Section -->
+                <section class="dashboard-panel profile-panel" id="profile-section">
+
+                    <div class="panel-header">
+                        <div>
+                            <h2>Account Information</h2>
+                            <p>Your registered account details</p>
+                        </div>
+
+                        <span class="account-status">
+                            <span></span>
+                            Active Account
+                        </span>
+                    </div>
+
+                    <div class="profile-details">
+
+                        <div class="profile-avatar" id="profileAvatar">U</div>
+
+                        <div class="profile-info">
+                            <h3 id="profileName">User</h3>
+                            <p id="profileEmail">user@example.com</p>
+                        </div>
+
+                        <div class="profile-meta">
+                            <span>ACCOUNT TYPE</span>
+                            <strong>Standard User</strong>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <footer class="dashboard-footer">
+                    <p>© 2026 Vitalis AI. Built with care for better health insights.</p>
+                    <span>AI-assisted. Human-centered.</span>
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
