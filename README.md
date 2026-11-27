@@ -261,13 +261,13 @@ Actual input features must match the trained model's expected feature names and 
         <strong>Atharva Kesharwani</strong>
       </a>
       <br/>
-      <sub>Machine Learning Model</sub>
+      <sub>ML Model</sub>
     </td>
     <td align="center" width="33%">
       <a href="https://github.com/nikhilnigam-135">
-        <img src="https://github.com/NIKHIL_USERNAME.png?size=40" width="40" alt="Nikhil"/>
+        <img src="https://github.com/nikhilnigam-135.png?size=40" width="40" alt="Nikhil"/>
         <br/>
-        <strong>Nikhil</strong>
+        <strong>Nikhil Nigam</strong>
       </a>
       <br/>
       <sub>Backend Development</sub>
